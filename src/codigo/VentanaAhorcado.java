@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Victor Jimenez Martin de la Torre
  */
 package codigo;
 
@@ -17,7 +15,7 @@ import java.util.Random;
  * @author DAM
  */
 public class VentanaAhorcado extends javax.swing.JFrame {
-    
+    //palabras posibles
     String palabraOculta = "";
     String palabraOculta1 = "CETYS";
     String palabraOculta2 = "FRESA";
@@ -27,7 +25,7 @@ public class VentanaAhorcado extends javax.swing.JFrame {
     String palabraOcultaAr[] ={palabraOculta1, palabraOculta2, palabraOculta3, palabraOculta4, palabraOculta5};
     int contador = 0;
     
-    
+    //metodo para elegir la palabra aleatoriamente
     public void eligePalabra(){
         Random n = new Random();
         int num = n.nextInt(palabraOcultaAr.length);
@@ -45,7 +43,7 @@ public class VentanaAhorcado extends javax.swing.JFrame {
         String palabraConGuiones = panelGuiones.getText();
         if (palabraOculta.contains(letra)){
             contador++;
-            int n = palabraOculta.indexOf(letra);
+            int n = palabraOculta.indexOf(letra);//obtenemos el indice de la letra que coincide
             palabraConGuiones = palabraConGuiones.substring(0, 2*n) + letra + palabraConGuiones.substring(2*n+1); 
             panelGuiones.setText(palabraConGuiones);
             
@@ -61,6 +59,7 @@ public class VentanaAhorcado extends javax.swing.JFrame {
         chequeaLetra(miBoton.getText());
         ganaPartida(contador);
     }
+    //dibuja la imagen
     private void dibujaImagen(int numeroImagen){
         URL nombreImagen = null;
         switch (numeroImagen){
@@ -83,6 +82,7 @@ public class VentanaAhorcado extends javax.swing.JFrame {
                                 Image.SCALE_DEFAULT));
         panelAhorcado.setIcon(miImagen);
     }
+    //metodo para ganar la partida
     public void ganaPartida(int a){
         if(a>=palabraOculta.length()){
             dibujaImagen(7);
