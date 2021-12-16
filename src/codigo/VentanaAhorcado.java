@@ -39,14 +39,12 @@ public class VentanaAhorcado extends javax.swing.JFrame {
     public void chequeaLetra(String letra){
         letra = letra.toUpperCase(); //convierto la letra en mayúscula
         palabraOculta = palabraOculta.toUpperCase();
-        
         String palabraConGuiones = panelGuiones.getText();
         if (palabraOculta.contains(letra)){
             contador++;
             int n = palabraOculta.indexOf(letra);//obtenemos el indice de la letra que coincide
             palabraConGuiones = palabraConGuiones.substring(0, 2*n) + letra + palabraConGuiones.substring(2*n+1); 
             panelGuiones.setText(palabraConGuiones);
-            
         }
         else{
             numeroFallos++;
@@ -72,7 +70,6 @@ public class VentanaAhorcado extends javax.swing.JFrame {
             case 6 : nombreImagen = getClass().getResource("/imagenes/ahorcado_fin.jpeg"); acabaPartida();break;
             case 7 : nombreImagen = getClass().getResource("/imagenes/acertasteTodo.jpeg"); break;
         }
-     
         ImageIcon miImagen = new ImageIcon(
                 new ImageIcon(nombreImagen).
                         getImage().
@@ -119,15 +116,12 @@ public class VentanaAhorcado extends javax.swing.JFrame {
        jButton26.setEnabled(false);
        jButton27.setEnabled(false);
        jButton28.setEnabled(false);
-       
-       
     }
+    
     public VentanaAhorcado() {
         initComponents();
         eligePalabra();
         dibujaImagen(0);
-        
-        
     }
 
     /**
