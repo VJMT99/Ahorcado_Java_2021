@@ -21,10 +21,11 @@ public class VentanaAhorcado extends javax.swing.JFrame {
     String palabraOculta = "";
     String palabraOculta1 = "CETYS";
     String palabraOculta2 = "FRESA";
-    String palabraOculta3 = "COCHE";
+    String palabraOculta3 = "BALON";
     String palabraOculta4 = "PLATO";
-    String palabraOculta5 = "CASCO";
+    String palabraOculta5 = "JUEGO";
     String palabraOcultaAr[] ={palabraOculta1, palabraOculta2, palabraOculta3, palabraOculta4, palabraOculta5};
+    int contador = 0;
     
     
     public void eligePalabra(){
@@ -43,14 +44,11 @@ public class VentanaAhorcado extends javax.swing.JFrame {
         
         String palabraConGuiones = panelGuiones.getText();
         if (palabraOculta.contains(letra)){
-            for (int i=0; i < palabraOculta.length(); i++){
-                if (palabraOculta.charAt(i) == letra.charAt(0)){
-                   palabraConGuiones = palabraConGuiones.substring(0, 2*i)
-                                      + letra
-                                      + palabraConGuiones.substring(2*i+1);
-                }
-            }
+            contador++;
+            int n = palabraOculta.indexOf(letra);
+            palabraConGuiones = palabraConGuiones.substring(0, 2*n) + letra + palabraConGuiones.substring(2*n+1); 
             panelGuiones.setText(palabraConGuiones);
+            
         }
         else{
             numeroFallos++;
@@ -61,18 +59,19 @@ public class VentanaAhorcado extends javax.swing.JFrame {
     public void chequeaBoton(JButton miBoton){
         miBoton.setEnabled(false);
         chequeaLetra(miBoton.getText());
+        ganaPartida(contador);
     }
     private void dibujaImagen(int numeroImagen){
         URL nombreImagen = null;
         switch (numeroImagen){
-            case 0 : nombreImagen = getClass().getResource("/imagenes/ahorcado_0.png"); break;
-            case 1 : nombreImagen = getClass().getResource("/imagenes/ahorcado_1.png"); break;
-            case 2 : nombreImagen = getClass().getResource("/imagenes/ahorcado_2.png"); break;
-            case 3 : nombreImagen = getClass().getResource("/imagenes/ahorcado_3.png"); break;
-            case 4 : nombreImagen = getClass().getResource("/imagenes/ahorcado_4.png"); break;
-            case 5 : nombreImagen = getClass().getResource("/imagenes/ahorcado_5.png"); break;
-            case 6 : nombreImagen = getClass().getResource("/imagenes/ahorcado_fin.png"); break;
-            default : nombreImagen = getClass().getResource("/imagenes/ahorcado_fin.png"); break;
+            case 0 : nombreImagen = getClass().getResource("/imagenes/ahorcado_0.jpeg"); break;
+            case 1 : nombreImagen = getClass().getResource("/imagenes/ahorcado_1.jpeg"); break;
+            case 2 : nombreImagen = getClass().getResource("/imagenes/ahorcado_2.jpeg"); break;
+            case 3 : nombreImagen = getClass().getResource("/imagenes/ahorcado_3.lpeg"); break;
+            case 4 : nombreImagen = getClass().getResource("/imagenes/ahorcado_4.jpeg"); break;
+            case 5 : nombreImagen = getClass().getResource("/imagenes/ahorcado_5.jpeg"); break;
+            case 6 : nombreImagen = getClass().getResource("/imagenes/ahorcado_fin.jpeg"); break;
+            case 7 : nombreImagen = getClass().getResource("/imagenes/acertasteTodo.png"); break;
         }
      
         ImageIcon miImagen = new ImageIcon(
@@ -84,11 +83,16 @@ public class VentanaAhorcado extends javax.swing.JFrame {
                                 Image.SCALE_DEFAULT));
         panelAhorcado.setIcon(miImagen);
     }
-    
+    public void ganaPartida(int a){
+        if(a>=palabraOculta.length()){
+            dibujaImagen(7);
+        }
+    }
     public VentanaAhorcado() {
         initComponents();
         eligePalabra();
         dibujaImagen(0);
+        
         
     }
 
