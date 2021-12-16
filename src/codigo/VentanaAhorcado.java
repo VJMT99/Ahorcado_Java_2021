@@ -70,7 +70,7 @@ public class VentanaAhorcado extends javax.swing.JFrame {
             case 4 : nombreImagen = getClass().getResource("/imagenes/ahorcado_4.jpeg"); break;
             case 5 : nombreImagen = getClass().getResource("/imagenes/ahorcado_5.jpeg"); break;
             case 6 : nombreImagen = getClass().getResource("/imagenes/ahorcado_fin.jpeg"); break;
-            case 7 : nombreImagen = getClass().getResource("/imagenes/acertasteTodo.png"); break;
+            case 7 : nombreImagen = getClass().getResource("/imagenes/acertasteTodo.jpeg"); break;
         }
      
         ImageIcon miImagen = new ImageIcon(
