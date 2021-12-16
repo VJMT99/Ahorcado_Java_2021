@@ -69,7 +69,7 @@ public class VentanaAhorcado extends javax.swing.JFrame {
             case 3 : nombreImagen = getClass().getResource("/imagenes/ahorcado_3.lpeg"); break;
             case 4 : nombreImagen = getClass().getResource("/imagenes/ahorcado_4.jpeg"); break;
             case 5 : nombreImagen = getClass().getResource("/imagenes/ahorcado_5.jpeg"); break;
-            case 6 : nombreImagen = getClass().getResource("/imagenes/ahorcado_fin.jpeg"); break;
+            case 6 : nombreImagen = getClass().getResource("/imagenes/ahorcado_fin.jpeg"); acabaPartida();break;
             case 7 : nombreImagen = getClass().getResource("/imagenes/acertasteTodo.jpeg"); break;
         }
      
@@ -86,7 +86,41 @@ public class VentanaAhorcado extends javax.swing.JFrame {
     public void ganaPartida(int a){
         if(a>=palabraOculta.length()){
             dibujaImagen(7);
+            acabaPartida();
         }
+    }
+    //desactiva todos los botones
+    public void acabaPartida(){
+       jButton1.setEnabled(false);
+       jButton2.setEnabled(false);
+       jButton3.setEnabled(false);
+       jButton4.setEnabled(false);
+       jButton5.setEnabled(false);
+       jButton6.setEnabled(false);
+       jButton7.setEnabled(false);
+       jButton8.setEnabled(false);
+       jButton9.setEnabled(false);
+       jButton10.setEnabled(false);
+       jButton11.setEnabled(false);
+       jButton12.setEnabled(false);
+       jButton13.setEnabled(false);
+       jButton14.setEnabled(false);
+       jButton15.setEnabled(false);
+       jButton16.setEnabled(false);
+       jButton17.setEnabled(false);
+       jButton18.setEnabled(false);
+       jButton19.setEnabled(false);
+       jButton20.setEnabled(false);
+       jButton21.setEnabled(false);
+       jButton22.setEnabled(false);
+       jButton23.setEnabled(false);
+       jButton24.setEnabled(false);
+       jButton25.setEnabled(false);
+       jButton26.setEnabled(false);
+       jButton27.setEnabled(false);
+       jButton28.setEnabled(false);
+       
+       
     }
     public VentanaAhorcado() {
         initComponents();
